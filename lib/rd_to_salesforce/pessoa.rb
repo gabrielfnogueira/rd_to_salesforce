@@ -27,7 +27,17 @@ module RdToSalesforce
 
     def initialize(*args)
       unless args.nil?
-        if args.kind_of?(Array)
+        if args[0].is_a?(Hash)
+          @name = args[0]['name'] unless args[0]['name'].nil?
+          @last_name = args[0]['last_name'] unless args[0]['last_name'].nil?
+          @email = args[0]['email'] unless args[0]['email'].nil?
+          @company = args[0]['company'] unless args[0]['company'].nil?
+          @job_title = args[0]['job_title'] unless args[0]['job_title'].nil?
+          @phone = args[0]['phone'] unless args[0]['phone'].nil?
+          @website = args[0]['website'] unless args[0]['website'].nil?
+          @conta_id = args[0]['conta_id'] unless args[0]['conta_id'].nil?
+
+        else
           @name = args[0] unless args[0].nil?
           @last_name = args[1] unless args[1].nil?
           @email = args[2] unless args[2].nil?
@@ -36,15 +46,6 @@ module RdToSalesforce
           @phone = args[5] unless args[5].nil?
           @website = args[6] unless args[6].nil?
           @conta_id = args[7] unless args[7].nil?
-        elsif args.is_a?(Hash)
-          @name = args['name'] unless args['name'].nil?
-          @last_name = args['last_name'] unless args['last_name'].nil?
-          @email = args['email'] unless args['email'].nil?
-          @company = args['company'] unless args['company'].nil?
-          @job_title = args['job_title'] unless args['job_title'].nil?
-          @phone = args['phone'] unless args['phone'].nil?
-          @website = args['website'] unless args['website'].nil?
-          @conta_id = args['conta_id'] unless args['conta_id'].nil?
         end
       end
     end
