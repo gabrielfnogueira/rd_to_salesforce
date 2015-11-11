@@ -25,6 +25,19 @@ module RdToSalesforce
     #   @conta = nil
     # end
 
+    def initialize(*args)
+      unless args.nil?
+        @name = args[0] unless args[0].nil?
+        @last_name = args[1] unless args[1].nil?
+        @email = args[2] unless args[2].nil?
+        @company = args[3] unless args[3].nil?
+        @job_title = args[4] unless args[4].nil?
+        @phone = args[5] unless args[5].nil?
+        @website = args[6] unless args[6].nil?
+        @conta_id = args[7] unless args[7].nil?
+      end
+    end
+
     def self.all
       pessoas = []
 
