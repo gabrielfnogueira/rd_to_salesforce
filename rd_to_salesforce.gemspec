@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = RdToSalesforce::VERSION
   s.authors     = ["Gabriel Nogueira"]
   s.email       = ["gfnogueira@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of RdToSalesforce."
-  s.description = "TODO: Description of RdToSalesforce."
+  s.homepage    = "https://github.com/gabrielfnogueira/rd_to_salesforce"
+  s.summary     = "A gem to include new Leads on Salesforce."
+  s.description = "A gem to include new Leads on Salesforce based on RD Station's object Pessoa."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]

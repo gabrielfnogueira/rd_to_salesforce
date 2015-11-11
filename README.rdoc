@@ -1,3 +1,78 @@
-= RdToSalesforce
+# RdToSalesforce
 
-This project rocks and uses MIT-LICENSE.
+RdToSalesforce is a gem to be used as a bridge between RD Station and Salesforce. As of now, it can only be used to transform RD Station's Pessoas into Salesforce's Leads.
+
+### Installation
+
+Add this to your Gemfile and run `bundle install`:
+
+```ruby
+gem 'rd_to_salesforce', :git => "git://github.com/gabrielfnogueira/rd_to_salesforce.git
+```
+
+
+### Usage
+
+* This gem is built using [databasedotcom-rails](https://github.com/dburkes/databasedotcom-rails), so for it to properly work you must create a YAML file at RAILS_ROOT/config/databasedotcom.yml file, like so 
+
+        ---
+        client_id: put-your-client-id-here
+        client_secret: put-your-client-secret-here
+        username: put-your-username-here
+        password: put-your-password-here
+        debugging: true
+
+* Just 'require "rd_to_salesforce"' on your controller.
+
+### Example
+
+# Example
+
+    require 'rd_to_salesforce'
+    
+    class PessoasController < ApplicationController
+      before_filter :load_user, :except => [:index, :new]
+  
+      def index
+        @users = RdToSalesforce::Pessoa.all
+      end
+  
+      def show
+      end
+    
+      def new
+        @user = RdToSalesforce::Pessoa.new
+      end
+  
+      def create
+        User.create User.coerce_params(params[:user])
+        flash[:info] = "The user was created!"
+        redirect_to users_path
+      end
+  
+      def edit
+      end
+  
+      def update
+        @pessoa.update User.coerce_params(params[:user])
+        flash[:info] = "The user was updated!"
+        redirect_to user_path(@user)
+      end
+  
+      def destroy
+        @pessoa.destroy
+        flash[:info] = "The user was deleted!"
+        redirect_to users_path
+      end
+  
+      private
+  
+      def load_pessoa
+        @pessoa = RdToSalesforce::Pessoa.find(params[:id])
+      end
+    end
+    
+    
+### License
+
+rd_to_salesforce is released under the MIT License
