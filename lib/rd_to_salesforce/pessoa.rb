@@ -92,7 +92,17 @@ module RdToSalesforce
       end
     end
 
-    def update
+    def update_attributes(params)
+
+      @name = params['name'] unless params['name'].nil?
+      @last_name = params['last_name'] unless params['last_name'].nil?
+      @email = params['email'] unless params['email'].nil?
+      @company = params['company'] unless params['company'].nil?
+      @job_title = params['job_title'] unless params['job_title'].nil?
+      @phone = params['phone'] unless params['phone'].nil?
+      @website = params['website'] unless params['website'].nil?
+      @conta_id = params['conta_id'] unless params['conta_id'].nil?
+
       lead = pessoa_to_lead
       lead.Id = @id
 

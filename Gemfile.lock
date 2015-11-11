@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rd_to_salesforce (0.0.7)
+    rd_to_salesforce (0.0.9)
       databasedotcom
       databasedotcom-rails
       rails (~> 4.2.4)

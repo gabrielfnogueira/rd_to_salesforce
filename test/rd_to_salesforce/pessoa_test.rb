@@ -90,7 +90,7 @@ class PessoaTest < ActiveSupport::TestCase
     assert_equal(false, result)
   end
 
-  def test_Pessoa_update
+  def update_attributes
     # pessoa = Pessoa.new('rbtest nome to update','rbtest','rbtest@email.com','rbtest','rbtest','1234567890','rbtest.com','00561000000GmCgAAK')
     pessoa = Pessoa.new
     pessoa.name = 'rbtest nome to update'
@@ -104,9 +104,10 @@ class PessoaTest < ActiveSupport::TestCase
 
     pessoa.create
 
-    pessoa.name = 'rbtest nome UPDATED'
+    param = Hash.new
+    param.name = 'rbtest nome UPDATED'
 
-    result = pessoa.update
+    result = pessoa.update_attributes(param)
 
     pessoa.destroy # destroy to keep database clean
 
