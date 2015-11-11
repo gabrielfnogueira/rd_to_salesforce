@@ -1,6 +1,7 @@
 require 'rd_to_salesforce/version'
 require 'databasedotcom'
 require 'databasedotcom-rails'
+require 'active_model'
 
 module RdToSalesforce
   class Pessoa
@@ -10,19 +11,19 @@ module RdToSalesforce
 
     attr_accessor :id, :name, :last_name, :email, :company, :job_title, :phone, :website, :conta_id, :conta, :errors
 
-    def initialize(name, last_name, email, company, job_title, phone, website, conta_id)
-      @name = name
-      @last_name = last_name
-      @email = email
-      @company = company
-      @job_title = job_title
-      @phone = phone
-      @website = website
-      @conta_id = conta_id
-
-      @id = nil
-      @conta = nil
-    end
+    # def initialize(name, last_name, email, company, job_title, phone, website, conta_id)
+    #   @name = name
+    #   @last_name = last_name
+    #   @email = email
+    #   @company = company
+    #   @job_title = job_title
+    #   @phone = phone
+    #   @website = website
+    #   @conta_id = conta_id
+    #
+    #   @id = nil
+    #   @conta = nil
+    # end
 
     def self.all
       pessoas = []
@@ -101,7 +102,16 @@ module RdToSalesforce
 
     private
     def self.lead_to_pessoa(lead, conta = nil)
-      new = Pessoa.new(lead.FirstName, lead.LastName, lead.Email, lead.Company, lead.Title, lead.Phone, lead.Website, lead.OwnerId)
+      # new = Pessoa.new(lead.FirstName, lead.LastName, lead.Email, lead.Company, lead.Title, lead.Phone, lead.Website, lead.OwnerId)
+      new = Pessoa.new
+      new.name = lead.FirstName
+      new.last_name = lead.LastName
+      new.email = lead.Email
+      new.company = lead.Company
+      new.job_title = lead.Title
+      new.phone = lead.Phone
+      new.website = lead.Website
+      new.conta_id = lead.OwnerId
 
       new.id = lead.Id
       new.conta = conta unless conta.nil?
