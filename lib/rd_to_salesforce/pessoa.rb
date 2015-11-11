@@ -27,14 +27,25 @@ module RdToSalesforce
 
     def initialize(*args)
       unless args.nil?
-        @name = args[0] unless args[0].nil?
-        @last_name = args[1] unless args[1].nil?
-        @email = args[2] unless args[2].nil?
-        @company = args[3] unless args[3].nil?
-        @job_title = args[4] unless args[4].nil?
-        @phone = args[5] unless args[5].nil?
-        @website = args[6] unless args[6].nil?
-        @conta_id = args[7] unless args[7].nil?
+        if args.kind_of?(Array)
+          @name = args[0] unless args[0].nil?
+          @last_name = args[1] unless args[1].nil?
+          @email = args[2] unless args[2].nil?
+          @company = args[3] unless args[3].nil?
+          @job_title = args[4] unless args[4].nil?
+          @phone = args[5] unless args[5].nil?
+          @website = args[6] unless args[6].nil?
+          @conta_id = args[7] unless args[7].nil?
+        elsif args.is_a?(Hash)
+          @name = args['name'] unless args['name'].nil?
+          @last_name = args['last_name'] unless args['last_name'].nil?
+          @email = args['email'] unless args['email'].nil?
+          @company = args['company'] unless args['company'].nil?
+          @job_title = args['job_title'] unless args['job_title'].nil?
+          @phone = args['phone'] unless args['phone'].nil?
+          @website = args['website'] unless args['website'].nil?
+          @conta_id = args['conta_id'] unless args['conta_id'].nil?
+        end
       end
     end
 

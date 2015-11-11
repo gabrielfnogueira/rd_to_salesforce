@@ -16,15 +16,17 @@ class PessoaTest < ActiveSupport::TestCase
 
   def test_Pessoa_create
     # pessoa = Pessoa.new('rbtest nome','rbtest','rbtest@email.com','rbtest','rbtest','1234567890','rbtest.com','00561000000GmCgAAK')
-    pessoa = Pessoa.new
-    pessoa.name = 'rbtest nome'
-    pessoa.last_name = 'rbtest'
-    pessoa.job_title = 'rbtest@email.com'
-    pessoa.company = 'rbtest'
-    pessoa.job_title = 'rbtest'
-    pessoa.phone = '1234567890'
-    pessoa.website = 'rbtest'
-    pessoa.conta_id = '00561000000GmCgAAK'
+    # pessoa = Pessoa.new
+    # pessoa.name = 'rbtest nome'
+    # pessoa.last_name = 'rbtest'
+    # pessoa.job_title = 'rbtest@email.com'
+    # pessoa.company = 'rbtest'
+    # pessoa.job_title = 'rbtest'
+    # pessoa.phone = '1234567890'
+    # pessoa.website = 'rbtest'
+    # pessoa.conta_id = '00561000000GmCgAAK'
+
+    pessoa = Pessoa.new("", "tests delete", "", "delete", "", "", "", "00561000000GmCgAAK")
 
     result = pessoa.create
 
