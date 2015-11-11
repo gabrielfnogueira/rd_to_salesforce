@@ -43,7 +43,7 @@ module RdToSalesforce
 
     def self.find(id)
       lead = Lead.find(id)
-      conta = User.find_by_Id(lead.OwnerId)
+      conta = User.find_by_Id(lead.OwnerId).Name
 
       lead_to_pessoa(lead, conta)
     end
