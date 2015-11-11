@@ -23,7 +23,7 @@ This gem is built using {databasedotcom-rails}[https://github.com/dburkes/databa
         password: put-your-password-here
         debugging: true
 
-Just 'require "rd_to_salesforce"' on your controller.
+Just <b>include RdToSalesforce</b> on your controller.
 
 === Example
 
