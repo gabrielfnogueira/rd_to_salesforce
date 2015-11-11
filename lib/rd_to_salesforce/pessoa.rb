@@ -4,6 +4,8 @@ require 'databasedotcom-rails'
 
 module RdToSalesforce
   class Pessoa
+    extend ActiveModel::Naming
+    include ActiveModel::Conversion
     include Databasedotcom::Rails::Controller
 
     attr_accessor :id, :name, :last_name, :email, :company, :job_title, :phone, :website, :conta_id, :conta, :errors
