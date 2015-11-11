@@ -95,6 +95,10 @@ module RdToSalesforce
 
     end
 
+    def persisted?
+      false
+    end
+
     private
     def self.lead_to_pessoa(lead, conta = nil)
       new = Pessoa.new(lead.FirstName, lead.LastName, lead.Email, lead.Company, lead.Title, lead.Phone, lead.Website, lead.OwnerId)
