@@ -1,6 +1,7 @@
 = RdToSalesforce
 
 RdToSalesforce is a gem to be used as a bridge between RD Station and Salesforce. As of now, it can only be used to transform RD Station's Pessoas into Salesforce's Leads.
+This project was my first contact with Ruby/Ruby on Rails, so I know that there are better ways to do it and I still have lot to learn.
 
 === Installation
 
